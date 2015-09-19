@@ -62,5 +62,22 @@ namespace CommandLineUtil
 
             return retval;
         }
+
+        /// <summary>
+        /// Check if parameter specified without any value, for example /help or /?
+        /// </summary>
+        /// <param name="name">Parameter name</param>
+        /// <param name="args">Command line args from Main()</param>
+        /// <returns>True if parameter without a value is specified</returns>
+        public static bool Param(string name, string[] args)
+        {
+            foreach(string arg in args)
+            {
+                if (arg.ToLower() == "/" + name.ToLower())
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
