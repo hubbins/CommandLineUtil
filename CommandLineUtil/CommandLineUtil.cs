@@ -17,7 +17,7 @@ namespace CommandLineUtil
         /// <param name="name">Parameter name</param>
         /// <param name="defaultValue">Default value if parameter not specified</param>
         /// <param name="args">Command line args from Main()</param>
-        /// <returns></returns>
+        /// <returns>Parameter value or default</returns>
         public static string Param(string name, string defaultValue, string[] args)
         {
             string retval = defaultValue;
@@ -43,7 +43,7 @@ namespace CommandLineUtil
         /// <param name="name">Parameter name</param>
         /// <param name="defaultValue">Default value if parameter not specified</param>
         /// <param name="args">Command line args from Main()</param>
-        /// <returns></returns>
+        /// <returns>Parameter value or default</returns>
         public static int Param(string name, int defaultValue, string[] args)
         {
             int retval = defaultValue;
