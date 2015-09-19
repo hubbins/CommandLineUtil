@@ -10,7 +10,7 @@ namespace CommandLineUtil
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Usage: CommandLineHack /int:intvalue /string:stringvalue  (parameters are optional)");
+            Console.WriteLine("Usage: CommandLineUtil /int:intvalue /string:stringvalue  (parameters are optional)");
 
             int intValue = CommandLineUtil.Param("int", 10, args);
             string stringValue = CommandLineUtil.Param("string", "test", args);
