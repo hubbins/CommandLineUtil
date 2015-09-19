@@ -17,14 +17,15 @@ namespace CommandLineUtil
         /// <param name="name">Parameter name</param>
         /// <param name="defaultValue">Default value if parameter not specified</param>
         /// <param name="args">Command line args from Main()</param>
+        /// <param name="prefix">Argument prefix, such as / or - (default to /)</param>
         /// <returns>Parameter value or default</returns>
-        public static string Param(string name, string defaultValue, string[] args)
+        public static string Param(string name, string defaultValue, string[] args, string prefix = "/")
         {
             string retval = defaultValue;
 
             foreach (string arg in args)
             {
-                if (arg.ToLower().StartsWith("/" + name.ToLower() + ":"))
+                if (arg.ToLower().StartsWith(prefix + name.ToLower() + ":"))
                 {
                     string[] tokens = arg.Split(new char[] { ':' });
                     if (tokens.Length == 2)
@@ -43,14 +44,15 @@ namespace CommandLineUtil
         /// <param name="name">Parameter name</param>
         /// <param name="defaultValue">Default value if parameter not specified</param>
         /// <param name="args">Command line args from Main()</param>
+        /// <param name="prefix">Argument prefix, such as / or - (default to /)</param>
         /// <returns>Parameter value or default</returns>
-        public static int Param(string name, int defaultValue, string[] args)
+        public static int Param(string name, int defaultValue, string[] args, string prefix = "/")
         {
             int retval = defaultValue;
 
             foreach (string arg in args)
             {
-                if (arg.ToLower().StartsWith("/" + name.ToLower() + ":"))
+                if (arg.ToLower().StartsWith(prefix + name.ToLower() + ":"))
                 {
                     string[] tokens = arg.Split(new char[] { ':' });
                     if (tokens.Length == 2)
@@ -68,12 +70,13 @@ namespace CommandLineUtil
         /// </summary>
         /// <param name="name">Parameter name</param>
         /// <param name="args">Command line args from Main()</param>
+        /// <param name="prefix">Argument prefix, such as / or - (default to /)</param>
         /// <returns>True if parameter without a value is specified</returns>
-        public static bool Param(string name, string[] args)
+        public static bool Param(string name, string[] args, string prefix = "/")
         {
             foreach(string arg in args)
             {
-                if (arg.ToLower() == "/" + name.ToLower())
+                if (arg.ToLower() == prefix + name.ToLower())
                     return true;
             }
 
